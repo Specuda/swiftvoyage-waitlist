@@ -14,63 +14,56 @@ interface EmailProps {
   userFirstname: string;
 }
 
-export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
+export const SwiftVoyagesEmail = ({ userFirstname }: EmailProps) => (
   <Html>
     <Head />
-    <Preview>Thanks for Joining the Waitlist, {userFirstname}! 🎉</Preview>
+    <Preview>Welcome aboard SwiftVoyages, {userFirstname}! 🛫</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img
-          src={`https://nextjs-notion-waitlist.vercel.app/waitlist-logo.png`}
+          src={`https://swiftvoyages.com/waitlist-logo.png`}
           width="220"
           height="100"
-          alt="Notion Waitlist Logo"
+          alt="SwiftVoyages Logo"
           style={logo}
         />
         <Text style={greeting}>Hi {userFirstname},</Text>
         <Text style={paragraph}>
-          Thanks for joining the waitlist for our Next.js + Notion CMS waitlist
-          template! I'm Lakshay, the developer behind this project. I'm glad to
-          have you on board.
+          Thanks for joining the SwiftVoyages waitlist! We're thrilled to have you on board
+          as we prepare to revolutionize the way people book and plan their flights.
         </Text>
         <Text style={paragraph}>
-          I'll keep you posted on the progress and notify you as soon as it's
-          ready for you to use. In the meantime, if you have any questions or
-          feedback, don't hesitate to reach out by replying directly to{" "}
-          <a href="mailto:lakshb.work@gmail.com" style={link}>
-            this email {""}
-          </a>
-          — I'm here to listen!
+          We're working hard to create a flight booking experience that's truly transparent,
+          simple, and seamless. You'll be among the first to know when we're ready for takeoff.
+          In the meantime, if you have any questions or thoughts about what you'd like to see
+          in a flight booking platform, feel free to reply to this email.
         </Text>
         <Text style={paragraph}>
-          You can also follow me on X/Twitter for updates:{" "}
-          <a href="https://x.com/blakssh" style={link}>
-            @blakssh
-          </a>
+          Get ready for a smoother way to travel!
         </Text>
         <Text style={signOff}>
-          Best regards,
+          Safe travels,
           <br />
-          Lakshay
+          The SwiftVoyages Team
         </Text>
         <Hr style={hr} />
         <Text style={footer}>
-          You received this email because you signed up for the Notion waitlist.
-          If you believe this is a mistake, feel free to ignore this email.
+          You received this email because you signed up for the SwiftVoyages waitlist.
+          If you believe this is a mistake, you can safely ignore this email.
         </Text>
       </Container>
     </Body>
   </Html>
 );
 
-NotionWaitlistEmail.PreviewProps = {
-  userFirstname: "Tyler",
+SwiftVoyagesEmail.PreviewProps = {
+  userFirstname: "Traveler",
 } as EmailProps;
 
-export default NotionWaitlistEmail;
+export default SwiftVoyagesEmail;
 
 const main = {
-  background: "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
+  background: "linear-gradient(135deg, #00C6FB 0%, #005BEA 100%)",
   fontFamily: 'figtree, "Helvetica Neue", Helvetica, Arial, sans-serif',
   padding: "40px 0",
   color: "#cccccc",
@@ -102,7 +95,7 @@ const paragraph = {
 };
 
 const link = {
-  color: "#F7FF9B",
+  color: "#00C6FB",
   textDecoration: "underline",
 };
 

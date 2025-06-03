@@ -77,6 +77,6 @@
 
 body {
   ::selection {
-    @apply bg-accent text-yellow-200;
+    @apply bg-accent text-blue-200;
   }
 }
