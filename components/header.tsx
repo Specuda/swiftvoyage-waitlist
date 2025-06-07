@@ -20,7 +20,7 @@ export default function Header() {
             variant="secondary"
             className="text-yellow-50 transition-all duration-150 ease-linear md:hover:text-yellow-200">
             <SiNotion className="md:mr-1.5" />
-            <span className="hidden md:inline">Notion DB sample</span>
+            <span className="hidden md:inline">Contact Us</span>
           </Button>
         </Link>
       </motion.div>
@@ -31,7 +31,7 @@ export default function Header() {
             variant="secondary"
             className="text-yellow-50 transition-all duration-150 ease-linear md:hover:text-yellow-200">
             <FaGithub className="md:mr-1.5" />
-            <span className="hidden md:inline">Use this template</span>
+            <span className="hidden md:inline">Github</span>
           </Button>
         </Link>
       </motion.div>
