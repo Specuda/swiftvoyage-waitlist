@@ -29,7 +29,7 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
         />
         <Text style={greeting}>Hi {userFirstname},</Text>
         <Text style={paragraph}>
-          Thanks for joining the waitlist for Swiftvoyages, we are happy to have you onboard with our app
+          Thanks for joining the waitlist for Tripli, we are happy to have you onboard with our app
         </Text>
         <Text style={paragraph}>
           I'll keep you posted on the progress and notify you as soon as it's
@@ -42,8 +42,8 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
         </Text>
         <Text style={paragraph}>
           You can also follow us for updates:{" "}
-          <a href="https://www.instagram.com/swiftvoyages" style={link}>
-            @Swiftvoyages
+          <a href="https://www.instagram.com/Tripli" style={link}>
+            @Tripli
           </a>
         </Text>
         <Text style={signOff}>
@@ -53,7 +53,7 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
         </Text>
         <Hr style={hr} />
         <Text style={footer}>
-          You received this email because you signed up for the Swiftvoyages waitlist.
+          You received this email because you signed up for the Tripli waitlist.
           If you believe this is a mistake, feel free to ignore this email.
         </Text>
       </Container>

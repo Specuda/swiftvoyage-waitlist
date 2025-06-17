@@ -2,77 +2,26 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import TextBlur from "@/components/ui/text-blur";
 import AnimatedShinyText from "@/components/ui/shimmer-text";
+import ThreeLogo from "@/components/three-logo";
 import { containerVariants, itemVariants } from "@/lib/animation-variants";
 
 export default function CTA() {
-  const [animationState, setAnimationState] = useState('idle'); // 'idle', 'takingOff', 'returning'
+  const [animationState, setAnimationState] = useState<'idle' | 'takingOff' | 'returning'>('idle');
   const [key, setKey] = useState(0);
 
   const handleTakeOff = () => {
-    if (animationState !== 'idle') return; // Prevent clicks during animation
+    if (animationState !== 'idle') return;
     
     setAnimationState('takingOff');
-    
-    // After takeoff, start return journey
-    setTimeout(() => {
+  };
+
+  const handleAnimationComplete = () => {
+    if (animationState === 'takingOff') {
       setAnimationState('returning');
-    }, 1500);
-    
-    // After return landing, reset to idle
-    setTimeout(() => {
+    } else if (animationState === 'returning') {
       setAnimationState('idle');
-      setKey(prev => prev + 1); // Reset for next cycle
-    }, 3500); // Total cycle: 1.5s takeoff + 2s return
-  };
-
-  const getAnimationProps = () => {
-    switch (animationState) {
-      case 'takingOff':
-        return {
-          y: -500,
-          x: 200,
-          rotate: -30,
-          scale: 0.3,
-          opacity: 0,
-          transition: {
-            duration: 1.5,
-            ease: "easeIn"
-          }
-        };
-      case 'returning':
-        return {
-          y: 0,
-          x: 0,
-          rotate: 90,
-          scale: 1,
-          opacity: 1,
-          transition: {
-            duration: 2,
-            ease: "easeOut"
-          }
-        };
-      default: // 'idle'
-        return {};
+      setKey(prev => prev + 1);
     }
-  };
-
-  const getInitialProps = () => {
-    if (animationState === 'returning') {
-      return {
-        y: -600,
-        x: -300,
-        rotate: 45,
-        scale: 0.2,
-        opacity: 0
-      };
-    }
-    return {
-      y: 0,
-      x: 0,
-      rotate: 0,
-      scale: 1,
-      opacity: 1
-    };
   };
 
   return (
@@ -91,29 +40,22 @@ export default function CTA() {
         </div>
       </motion.div>
 
-      <motion.img
-        key={`${key}-${animationState}`} // Unique key for return animation
-        src="/airplane_3d.png"
-        alt="logo"
-        className="mx-auto h-24 w-24 drop-shadow-lg cursor-pointer select-none"
+      <motion.div 
         variants={itemVariants}
-        whileHover={animationState === 'idle' ? { 
-          scale: 1.1, 
-          rotate: [0, -5, 5, 0],
-          transition: { duration: 0.3 }
-        } : {}}
-        initial={getInitialProps()}
-        animate={getAnimationProps()}
-        onClick={handleTakeOff}
-        style={{
-          transform: animationState === 'idle' ? "translateZ(0)" : undefined
-        }}
-      />
+        className="flex justify-center"
+      >
+        <ThreeLogo
+          key={key}
+          modelPath="/airplane.glb" // Your 3D model path
+          className="mx-auto"
+          animationState={animationState}
+        />
+      </motion.div>
 
       <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-3xl font-medium tracking-tighter sm:text-5xl"
-          text="Swiftvoyages"
+          text="Tripli"
         />
       </motion.div> 
 
