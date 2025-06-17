@@ -34,6 +34,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
+    console.error("Notion API error:", error); // Add this line
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }
